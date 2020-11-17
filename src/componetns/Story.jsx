@@ -14,9 +14,10 @@ import {fetchStory} from "../store/reducers/storyReducer";
 
 export const Story = ({_id, text, user, classes, createdAt}) => {
     const dispatch = useDispatch()
-    const handleClick = (_id) => {
+    const handleClick = () => {
         dispatch(fetchStory(_id))
     }
+
     return (
         <NavLink onClick={handleClick} className={classes.storyWrapper} to={`/home/story/${_id}`}>
             <Paper variant="outlined" className={classNames(classes.story, classes.storyHeader)}>

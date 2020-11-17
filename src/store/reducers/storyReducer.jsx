@@ -3,7 +3,7 @@ import {Api} from "../../restApi/Api";
 
 const initialState = {
     data: {},
-    isLoaded: false
+    isLoaded: true
 }
 
 const storyReducer = (state = initialState, action) => {
@@ -12,7 +12,7 @@ const storyReducer = (state = initialState, action) => {
             return {
                 ...state,
                 data: action.payload,
-                isLoaded: true
+                isLoaded: false
             }
         }
         default:

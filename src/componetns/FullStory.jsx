@@ -8,7 +8,7 @@ import CommentIcon from '@material-ui/icons/ChatBubbleOutlineOutlined';
 import RepostIcon from '@material-ui/icons/RepeatOutlined';
 import LikeIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import ShareIcon from '@material-ui/icons/ReplyOutlined';
-import { Divider, IconButton } from '@material-ui/core';
+import {Divider, IconButton} from '@material-ui/core';
 import format from 'date-fns/format'
 import ruLang from 'date-fns/locale/ru'
 import {Story} from "./Story";
@@ -16,34 +16,27 @@ import {useHomeStyles} from "../pages/Home/theme";
 import {useSelector} from "react-redux";
 
 
-
 export const FullStory = () => {
     const classes = useHomeStyles();
     const {data, isLoaded} = useSelector(({story}) => story)
-    console.log(data, isLoaded)
+    console.log(data, isLoaded, 'story in fullStory')
 
-    if (isLoaded) {
-        return (
-            <div className={classes.storyCentred}>
-                <CircularProgress />
-            </div>
-        );
-    }
-
-    if (data) {
-        return (
-            <>
+    return (
+        <div>
+            {isLoaded ? (<div className={classes.storyCentred}>
+                <CircularProgress/>
+            </div>) : (data) ? (
                 <Paper className={classes.fullStory}>
                     <div className={classNames(classes.storyHeaderUser)}>
                         <Avatar
                             className={classes.storyAvatar}
                             alt={`Аватарка пользователя`}
-                            src='https://pbs.twimg.com/profile_images/1172922412029136897/gFRmgn1W_bigger.jpg'
+                            src={data.user.avatarUrl}
                         />
                         <Typography>
-                            <b>FullName</b>&nbsp;
+                            <b>{data.user.fullName}</b>&nbsp;
                             <div>
-                                <span className={classes.storyUserName}>@username</span>&nbsp;
+                                <span className={classes.storyUserName}>@{data.user.userName}</span>&nbsp;
                             </div>
                         </Typography>
                     </div>
@@ -56,35 +49,21 @@ export const FullStory = () => {
                     {/*</Typography>*/}
                     <div className={classNames(classes.storyFooter, classes.fullStoryFooter)}>
                         <IconButton>
-                            <CommentIcon style={{ fontSize: 25 }} />
+                            <CommentIcon style={{fontSize: 25}}/>
                         </IconButton>
                         <IconButton>
-                            <RepostIcon style={{ fontSize: 25 }} />
+                            <RepostIcon style={{fontSize: 25}}/>
                         </IconButton>
                         <IconButton>
-                            <LikeIcon style={{ fontSize: 25 }} />
+                            <LikeIcon style={{fontSize: 25}}/>
                         </IconButton>
                         <IconButton>
-                            <ShareIcon style={{ fontSize: 25 }} />
+                            <ShareIcon style={{fontSize: 25}}/>
                         </IconButton>
                     </div>
                 </Paper>
-                <Divider />
-                <Story
-                    _id="1"
-                    text="Any more to move? You might need to adjust your stretching routines!"
-                    createdAt={new Date().toString()}
-                    user={{
-                        fullName: 'Arlene Andrews',
-                        userName: 'ArleneAndrews_1',
-                        avatarUrl:
-                            'https://pbs.twimg.com/profile_images/1172922412029136897/gFRmgn1W_bigger.jpg',
-                    }}
-                    classes={classes}
-                />
-            </>
-        );
-    }
+            ) : null}
+        </div>
+    );
+}
 
-    return null;
-};

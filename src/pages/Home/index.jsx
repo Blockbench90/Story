@@ -17,7 +17,7 @@ const Home = () => {
     useEffect(()=>{
         dispatch(fetchStories())
     }, [])
-    console.log("Home render")
+    // console.log("Home render")
     return (
         <Container maxWidth="lg" className={classes.wrapper}>
             {/*spacing - расстояние между блоками гридов*/}
