@@ -12,15 +12,17 @@ import { Divider, IconButton } from '@material-ui/core';
 import format from 'date-fns/format'
 import ruLang from 'date-fns/locale/ru'
 import {Story} from "./Story";
-import { useHomeStyles } from '../pages/Home';
+import {useHomeStyles} from "../pages/Home/theme";
+import {useSelector} from "react-redux";
+
 
 
 export const FullStory = () => {
     const classes = useHomeStyles();
-    const isLoading = true
-    const storyData = true
+    const {data, isLoaded} = useSelector(({story}) => story)
+    console.log(data, isLoaded)
 
-    if (isLoading) {
+    if (isLoaded) {
         return (
             <div className={classes.storyCentred}>
                 <CircularProgress />
@@ -28,7 +30,7 @@ export const FullStory = () => {
         );
     }
 
-    if (storyData) {
+    if (data) {
         return (
             <>
                 <Paper className={classes.fullStory}>
@@ -46,11 +48,11 @@ export const FullStory = () => {
                         </Typography>
                     </div>
                     <Typography className={classes.fullStoryText} gutterBottom>
-                        {storyData.text}
+                        {data.text}
                     </Typography>
                     {/*<Typography>*/}
-                    {/*    <span className={classes.storyUserName}>{format(new Date(storyData.createdAt), 'H:mm', { locale: ruLang })} · </span>*/}
-                    {/*    <span className={classes.storyUserName}>{format(new Date(storyData.createdAt), 'dd MMM. yyyy г.', { locale: ruLang })}</span>*/}
+                    {/*    <span className={classes.storyUserName}>{format(new Date(data.createdAt), 'H:mm', { locale: ruLang })} · </span>*/}
+                    {/*    <span className={classes.storyUserName}>{format(new Date(data.createdAt), 'dd MMM. yyyy г.', { locale: ruLang })}</span>*/}
                     {/*</Typography>*/}
                     <div className={classNames(classes.storyFooter, classes.fullStoryFooter)}>
                         <IconButton>

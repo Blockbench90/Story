@@ -21,6 +21,5 @@ export default storiesReducer
 
 const setStories = (stories) => ({type: 'SET_STORIES', payload: stories})
 export const fetchStories = () => (dispatch) => {
-    debugger
     Api.getStories().then((data) => dispatch(setStories(data)))
 }

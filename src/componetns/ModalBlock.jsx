@@ -6,17 +6,9 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import {useStylesSignIn} from "../pages/SingIn";
 
-//типы
-interface ModalBlockProps {
-    title?: string;
-    children: React.ReactNode;
-    classes?: ReturnType<typeof useStylesSignIn>;
-    visible?: boolean;
-    onClose: () => void;
-}
+
 //модальное окно
-export const ModalBlock: React.FC<ModalBlockProps> = ({ title, onClose, visible = false, children, }:
-                                                          ModalBlockProps): React.ReactElement | null => {
+export const ModalBlock = ({ title, onClose, visible = false, children, }) => {
     if (!visible) {
         return null;
     }

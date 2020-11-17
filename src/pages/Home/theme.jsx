@@ -12,6 +12,19 @@ export const useHomeStyles = makeStyles((theme) => ({
     logoIcon: {
         fontSize: 40,
     },
+    modalMenu: {
+      '@media (min-width:600px)': {
+          display: 'none',
+      }
+    },
+    menuHeader: {
+        '@media (max-width:600px)': {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            paddingRight: 20
+        }
+    },
     sideMenuList: {
         position: 'sticky',
         top: 0,
@@ -19,8 +32,15 @@ export const useHomeStyles = makeStyles((theme) => ({
         padding: 0,
         margin: 0,
         maxWidth: 230,
+        '@media (max-width:600px)': {
+            display: 'none',
+        }
     },
     sideMenuListItem: {
+        '& a': {
+            color: 'inherit',
+            textDecoration: 'none',
+        },
         cursor: 'pointer',
         '&:hover': {
             '& div': {
@@ -59,6 +79,8 @@ export const useHomeStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(2),
     },
     storyWrapper: {
+        color: 'inherit',
+        textDecoration: 'none',
         borderRadius: 0,
         height: '100%',
         borderTop: '0',
@@ -95,9 +117,22 @@ export const useHomeStyles = makeStyles((theme) => ({
         },
     },
     storyAvatar: {
+        display: 'flex-start',
         width: theme.spacing(5.5),
         height: theme.spacing(5.5),
         marginRight: 10,
+        '@media (max-width:1100px)': {
+            width: theme.spacing(4.5),
+            height: theme.spacing(4.5),
+        },
+        '@media (max-width:890px)': {
+            width: theme.spacing(3),
+            height: theme.spacing(3),
+        },
+        '@media (max-width:600px)': {
+                width: theme.spacing(3.5),
+                height: theme.spacing(3.5),
+        }
     },
     storyFooter: {
         display: 'flex',
@@ -135,7 +170,7 @@ export const useHomeStyles = makeStyles((theme) => ({
         paddingTop: 20,
         position: 'sticky',
         top: 0,
-        '& @media(max-width: 640px)': {
+        '@media(max-width: 640px)': {
             display: 'none'
         }
     },

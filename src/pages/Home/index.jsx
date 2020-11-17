@@ -6,17 +6,18 @@ import {useHomeStyles} from "./theme";
 import RightSide from "./RightSide";
 import Content from "./Content";
 import {Api} from "../../restApi/Api";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {fetchStories} from "../../store/reducers/storiesReducer";
 
 
-const Index = () => {
+const Home = () => {
     const {items, isLoaded} = useSelector(({stories}) => stories)
+    const dispatch = useDispatch()
     const classes = useHomeStyles()
     useEffect(()=>{
-        fetchStories()
+        dispatch(fetchStories())
     }, [])
-    console.log(items, isLoaded)
+    console.log("Home render")
     return (
         <Container maxWidth="lg" className={classes.wrapper}>
             {/*spacing - расстояние между блоками гридов*/}
@@ -24,7 +25,7 @@ const Index = () => {
                 <Grid sm={2} md={2} item>
                     <SideMenu classes={classes}/>
                 </Grid>
-                <Grid sm={8} md={8} item>
+                <Grid sm={7} md={7} item>
                     <Content classes={classes} isLoading={isLoaded} items={items}/>
                 </Grid>
                 <Grid sm={2} md={2} item>
@@ -34,4 +35,4 @@ const Index = () => {
         </Container>
     )
 }
-export default Index
+export default Home

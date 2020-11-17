@@ -16,6 +16,7 @@ import Typography from '@material-ui/core/Typography';
 import {ModalBlock} from "./ModalBlock";
 import {AddStoryForm} from "./AddStoryForm";
 import {UserSideProfile} from "./UserSideProfile";
+import {NavLink} from "react-router-dom";
 
 export const SideMenu = ({classes}) => {
     const [visibleAddTweet, setSetVisibleAddTweet] = React.useState(false);
@@ -32,18 +33,14 @@ export const SideMenu = ({classes}) => {
         <>
             <ul className={classes.sideMenuList}>
                 <li className={classes.sideMenuListItem}>
-                    <div>
-
-                            <ImportContactsOutlinedIcon className={classes.logoIcon} color="secondary"/>
-
-                        <Hidden smDown>
-                            <Typography className={classes.sideMenuListItemLabel} variant="h6">
-                                Story
-                            </Typography>
-                        </Hidden>
-                    </div>
+                    <NavLink to='/home'>
+                    <IconButton>
+                            <ImportContactsOutlinedIcon className={classes.logoIcon} aria-label="" color="secondary"/>
+                    </IconButton>
+                    </NavLink>
                 </li>
                 <li className={classes.sideMenuListItem}>
+                    <NavLink to='/home'>
                     <div>
                         <HomeIcon className={classes.sideMenuListItemIcon}/>
                         <Hidden smDown>
@@ -52,6 +49,7 @@ export const SideMenu = ({classes}) => {
                             </Typography>
                         </Hidden>
                     </div>
+                    </NavLink>
                 </li>
                 <li className={classes.sideMenuListItem}>
                     <div>
@@ -136,7 +134,7 @@ export const SideMenu = ({classes}) => {
                     </ModalBlock>
                 </li>
             </ul>
-            <UserSideProfile classes={classes}/>
+            {/*<UserSideProfile classes={classes}/>*/}
         </>
     );
 };

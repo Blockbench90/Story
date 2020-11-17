@@ -8,11 +8,11 @@ import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import EmojiIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
 
-const MAX_LENGTH = 280;
+const MAX_LENGTH = 250;
 
 export const AddStoryForm = ({classes, maxRows, }) => {
     const [text, setText] = React.useState('');
-    const textLimitPercent = Math.round((text.length / 280) * 100);
+    const textLimitPercent = Math.round((text.length / 250) * 100);
     const textCount = MAX_LENGTH - text.length;
 
     const handleChangeTextarea = (e) => {
