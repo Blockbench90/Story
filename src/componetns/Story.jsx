@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import classNames from "classnames";
 import Grid from "@material-ui/core/Grid";
 import {Avatar, IconButton, Typography} from "@material-ui/core";
@@ -8,19 +8,14 @@ import LikeIcon from "@material-ui/icons/FavoriteBorderOutlined";
 import SheareIcon from "@material-ui/icons/OpenInBrowserOutlined";
 import Paper from "@material-ui/core/Paper";
 import {NavLink} from "react-router-dom";
-import {useDispatch} from "react-redux";
-import {fetchStory} from "../store/reducers/storyReducer";
+import {useDispatch, useSelector} from "react-redux";
+import {catchStory} from "../store/reducers/storyReducer";
 
 
 export const Story = ({_id, text, user, classes, createdAt}) => {
-    const dispatch = useDispatch()
-    const handleClick = () => {
-        dispatch(fetchStory(_id))
-    }
-
     return (
-        <NavLink onClick={handleClick} className={classes.storyWrapper} to={`/home/story/${_id}`}>
-            <Paper variant="outlined" className={classNames(classes.story, classes.storyHeader)}>
+        <a className={classes.storyWrapper} href={`/home/story/${_id}`} >
+            <Paper variant="outlined" className={classNames(classes.story, classes.storyHeader)} >
                 <Grid container spacing={3}>
                     <Grid item xs={1}>
                         <Avatar className={classes.storyAvatar} alt={`Аватарка пользователя ${user.fullName}`}
@@ -60,7 +55,7 @@ export const Story = ({_id, text, user, classes, createdAt}) => {
                     </Grid>
                 </Grid>
             </Paper>
-        </NavLink>
+        </a>
     )
 }
 

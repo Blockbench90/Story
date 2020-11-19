@@ -9,6 +9,7 @@ import TextField from '@material-ui/core/TextField';
 import {ModalBlock} from "../../componetns/ModalBlock";
 import Paper from "@material-ui/core/Paper";
 import {useStylesSignIn} from "./theme";
+import {NavLink} from "react-router-dom";
 
 
 export const SignIn = () => {
@@ -60,8 +61,12 @@ export const SignIn = () => {
                                 <TextField className={classes.loginSideField} autoFocus id="password"
                                            label="Пароль" InputLabelProps={{ shrink: true }} variant="filled"
                                            type="password" fullWidth/>
+                                           <NavLink to='/home'>
                                 <Button onClick={handleCloseModal} variant="contained"
-                                        color="primary" fullWidth>Войти</Button>
+                                        color="primary" fullWidth>
+                                    Войти
+                                </Button>
+                                           </NavLink>
                             </FormGroup>
                         </FormControl>
                     </ModalBlock>

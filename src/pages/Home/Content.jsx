@@ -12,17 +12,22 @@ import {fetchStory} from "../../store/reducers/storyReducer";
 
 
 const Content = ({classes, isLoading, items}) => {
-     return (
+    return (
         <Paper className={classes.storyWrapper} variant="outlined">
             <Paper>
                 <div className={classes.menuHeader}>
-                    <div>
-                        <Route path="/home:any">
+                    <div style={{display: 'flex'}}>
+                        <Route path="/home/:any">
                             <BackButton/>
                         </Route>
                         <Route path={['/home', '/home/search']} exact>
                             <Paper variant="outlined" className={classes.storyHeader}>
                                 <Typography variant="h6">Главная</Typography>
+                            </Paper>
+                        </Route>
+                        <Route path="/home/story">
+                            <Paper className={classes.storyHeader} style={{marginLeft: -14}}>
+                            <Typography variant="h6">Story</Typography>
                             </Paper>
                         </Route>
                     </div>
@@ -52,7 +57,7 @@ const Content = ({classes, isLoading, items}) => {
                         <Story key={obj._id} classes={classes} {...obj}/>
                     )))}
             </Route>
-            <Route path='/home/story/:id' component={FullStory} exact/>
+            <Route path='/home/story/:id' render={() => <FullStory />} exact/>
         </Paper>
     )
 }
