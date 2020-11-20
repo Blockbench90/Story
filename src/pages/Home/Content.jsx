@@ -53,7 +53,7 @@ const Content = ({classes, isLoading, items}) => {
                     ? (<div className={classes.storyCentred}>
                         <CircularProgress/>
                     </div>)
-                    : (items.map((obj) => (
+                    : ([...items].reverse().map((obj) => (
                         <Story key={obj._id} classes={classes} {...obj}/>
                     )))}
             </Route>

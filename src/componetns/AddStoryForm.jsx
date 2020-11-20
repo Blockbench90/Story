@@ -7,10 +7,13 @@ import IconButton from '@material-ui/core/IconButton';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import EmojiIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
+import {useDispatch} from "react-redux";
+import {addNewStory} from "../store/reducers/storiesReducer";
 
 const MAX_LENGTH = 250;
 
 export const AddStoryForm = ({classes, maxRows, }) => {
+    const dispatch = useDispatch()
     const [text, setText] = React.useState('');
     const textLimitPercent = Math.round((text.length / 250) * 100);
     const textCount = MAX_LENGTH - text.length;
@@ -22,6 +25,7 @@ export const AddStoryForm = ({classes, maxRows, }) => {
     };
 
     const handleClickAddTweet = () => {
+        dispatch(addNewStory(text))
         setText('');
     };
 
@@ -74,7 +78,7 @@ export const AddStoryForm = ({classes, maxRows, }) => {
                     )}
                     <Button
                         onClick={handleClickAddTweet}
-                        disabled={text.length >= MAX_LENGTH}
+                        disabled={!text || text.length >= MAX_LENGTH}
                         color="primary"
                         variant="contained">
                         Опубликовать

@@ -70,74 +70,14 @@
       "id": 7
     },
     {
-      "_id": "rui03w1me6",
-      "text": "test",
+      "_id": "te4l72npu0g",
+      "text": "asdfasdfasdfasdf",
       "user": {
-        "fullName": "Test User",
-        "userName": "test",
-        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+        "fullName": "TEST",
+        "userName": "TEST",
+        "avatarUrl": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fcms-assets.tutsplus.com%2Fuploads%2Fusers%2F34%2Fposts%2F27871%2Fpreview_image%2Fjson.jpg&imgrefurl=https%3A%2F%2Fcode.tutsplus.com%2Fru%2Ftutorials%2Ffake-rest-api-up-and-running-using-json-server--cms-27871&tbnid=B_4qzkD3z8ejAM&vet=12ahUKEwjIqbG2ypHtAhXWxyoKHd_MAnwQMygBegUIARCVAQ..i&docid=3b_jvvIhbjOjEM&w=400&h=277&q=json%20server&ved=2ahUKEwjIqbG2ypHtAhXWxyoKHd_MAnwQMygBegUIARCVAQ"
       },
       "id": 8
-    },
-    {
-      "_id": "x5f5j0gvihn",
-      "text": "qweqweqweqweqweqweqweqwe",
-      "user": {
-        "fullName": "Test User",
-        "userName": "test",
-        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
-      },
-      "id": 9
-    },
-    {
-      "_id": "a7xog2wmmvj",
-      "text": "I just spent the morning helping my parents unload another 20-ft moving truck. Then I went running. I think I'm as physically tired now as I can remember being",
-      "user": {
-        "fullName": "Brian Vaughn 🖤",
-        "userName": "brian_d_vaughn",
-        "avatarUrl": "https://pbs.twimg.com/profile_images/1290320630521487362/UKVSbU2V_bigger.jpg"
-      },
-      "id": 10
-    },
-    {
-      "_id": "f9412q3a018",
-      "text": "qweqwe",
-      "user": {
-        "fullName": "Brian Vaughn 🖤",
-        "userName": "brian_d_vaughn",
-        "avatarUrl": "https://pbs.twimg.com/profile_images/1290320630521487362/UKVSbU2V_bigger.jpg"
-      },
-      "id": 11
-    },
-    {
-      "_id": "2unnwxc6k1i",
-      "text": "After twelve hours on a website, the next link click will be a full page reload to get new code:\n\nhttps://gist.github.com/2c50e77768e3f88b1c7251ef95ed01d3\n\nGreat idea \n@JoshWComeau\n! React Router already has a prop for this, just gotta update it after however many hours you want",
-      "user": {
-        "fullName": "Brian Vaughn 🖤",
-        "userName": "brian_d_vaughn",
-        "avatarUrl": "https://pbs.twimg.com/profile_images/1290320630521487362/UKVSbU2V_bigger.jpg"
-      },
-      "id": 12
-    },
-    {
-      "_id": "njzafu48hj",
-      "text": "Тестовый твит",
-      "user": {
-        "fullName": "Brian Vaughn 🖤",
-        "userName": "brian_d_vaughn",
-        "avatarUrl": "https://pbs.twimg.com/profile_images/1290320630521487362/UKVSbU2V_bigger.jpg"
-      },
-      "id": 14
-    },
-    {
-      "_id": "3im9o4e9h72",
-      "text": "первый твит",
-      "user": {
-        "fullName": "Brian Vaughn 🖤",
-        "userName": "brian_d_vaughn",
-        "avatarUrl": "https://pbs.twimg.com/profile_images/1290320630521487362/UKVSbU2V_bigger.jpg"
-      },
-      "id": 15
     }
   ],
   "tags": [

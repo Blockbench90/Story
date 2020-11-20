@@ -8,6 +8,9 @@ export const Api = {
     },
     getStory(_id){
         return axios.get(`/stories?_id=${_id}`)
+    },
+    addStory(data){
+        return axios.post('/stories', data)
     }
 }
 // const setProduct = (items) => ({ type: 'SET_PRODUCT', payload: items })
