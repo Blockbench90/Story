@@ -78,6 +78,16 @@
         "avatarUrl": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fcms-assets.tutsplus.com%2Fuploads%2Fusers%2F34%2Fposts%2F27871%2Fpreview_image%2Fjson.jpg&imgrefurl=https%3A%2F%2Fcode.tutsplus.com%2Fru%2Ftutorials%2Ffake-rest-api-up-and-running-using-json-server--cms-27871&tbnid=B_4qzkD3z8ejAM&vet=12ahUKEwjIqbG2ypHtAhXWxyoKHd_MAnwQMygBegUIARCVAQ..i&docid=3b_jvvIhbjOjEM&w=400&h=277&q=json%20server&ved=2ahUKEwjIqbG2ypHtAhXWxyoKHd_MAnwQMygBegUIARCVAQ"
       },
       "id": 8
+    },
+    {
+      "_id": "55j3fetodb6",
+      "text": "Reload page after whriten\n",
+      "user": {
+        "fullName": "TEST",
+        "userName": "TEST",
+        "avatarUrl": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fcms-assets.tutsplus.com%2Fuploads%2Fusers%2F34%2Fposts%2F27871%2Fpreview_image%2Fjson.jpg&imgrefurl=https%3A%2F%2Fcode.tutsplus.com%2Fru%2Ftutorials%2Ffake-rest-api-up-and-running-using-json-server--cms-27871&tbnid=B_4qzkD3z8ejAM&vet=12ahUKEwjIqbG2ypHtAhXWxyoKHd_MAnwQMygBegUIARCVAQ..i&docid=3b_jvvIhbjOjEM&w=400&h=277&q=json%20server&ved=2ahUKEwjIqbG2ypHtAhXWxyoKHd_MAnwQMygBegUIARCVAQ"
+      },
+      "id": 9
     }
   ],
   "tags": [
