@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react'
-import {Button, Paper, Typography} from "@material-ui/core";
+import React from 'react'
+import { Paper, Typography} from "@material-ui/core";
 import {AddStoryForm} from "../../componetns/AddStoryForm";
 import {Story} from "../../componetns/Story";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -7,11 +7,10 @@ import ModalMenu from "../../componetns/ModalMenu";
 import BackButton from "../../utils/BackButton";
 import {Route} from "react-router-dom";
 import {FullStory} from "../../componetns/FullStory";
-import {useDispatch, useSelector} from "react-redux";
-import {fetchStory} from "../../store/reducers/storyReducer";
 
 
 const Content = ({classes, isLoading, items}) => {
+    console.log("Props in Content", isLoading, items)
     return (
         <Paper className={classes.storyWrapper} variant="outlined">
             <Paper>

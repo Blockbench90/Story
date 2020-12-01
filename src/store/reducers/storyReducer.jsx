@@ -3,7 +3,7 @@ import {Api} from "../../restApi/Api";
 import produce from "immer";
 
 const initialState = {
-    data: undefined,
+    data: [],
     isLoaded: true
 }
 
@@ -22,5 +22,5 @@ const storyReducer = (state = initialState, action) => {
 export default storyReducer
 export const setStory = (story, isLoaded) => ({type: 'SET_STORY', payload: story, isLoaded: false})
 export const fetchStoryData = (_id) => (dispatch) => {
-    Api.getStory(_id).then((data) => dispatch(setStory(data.data[0])))
+    Api.getStory(_id).then((data) => dispatch(setStory(data)))
 }
