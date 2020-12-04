@@ -144,7 +144,14 @@ export const useHomeStyles = makeStyles((theme) => ({
     storyUserName: {
         color: grey[500],
     },
-
+    storyCon: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
+    storyHed: {
+        flex: 1
+    },
     fullStory: {
         padding: 22,
         paddingBottom: 0,

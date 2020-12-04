@@ -10,7 +10,6 @@ import {FullStory} from "../../componetns/FullStory";
 
 
 const Content = ({classes, isLoading, items}) => {
-    console.log("Props in Content", isLoading, items)
     return (
         <Paper className={classes.storyWrapper} variant="outlined">
             <Paper>
@@ -56,7 +55,7 @@ const Content = ({classes, isLoading, items}) => {
                         <Story key={obj._id} classes={classes} {...obj}/>
                     )))}
             </Route>
-            <Route path='/home/story/:id' render={() => <FullStory />} exact/>
+            <Route path='/home/stories/:id' render={() => <FullStory />} exact/>
         </Paper>
     )
 }
