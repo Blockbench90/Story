@@ -1,5 +1,5 @@
 import React from "react";
-import {StoriesApi} from "../../restApi/Api";
+import {StoriesApi} from "../../restApi/storiesApi";
 import produce from "immer";
 
 const initialState = {
