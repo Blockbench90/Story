@@ -22,7 +22,6 @@ const userReducer = (state = initialState, action) => {
             })
         }
         case AUTH_ME_USER: {
-            console.log('Data прилетевшая после AuthMe', action.payload)
             return produce(state, draft => {
                 draft.data = action.payload.data
                 draft.status = action.payload.status

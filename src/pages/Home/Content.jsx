@@ -48,10 +48,11 @@ const Content = ({classes, isLoading, items}) => {
 
             <Route path="/home" exact>
                 {isLoading
+
                     ? (<div className={classes.storyCentred}>
                         <CircularProgress/>
                     </div>)
-                    : ([...items].reverse().map((obj) => (
+                    : (items.map((obj) => (
                         <Story key={obj._id} classes={classes} {...obj}/>
                     )))}
             </Route>

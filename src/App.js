@@ -7,6 +7,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {authMeUser} from "./store/reducers/userReducer";
 
 function App() {
+    const auth = window.localStorage.token
+    console.log(!!auth, 'Token in App')
     const history = useHistory()
     const dispatch = useDispatch()
     const data = useSelector(({user}) => user)
@@ -30,18 +32,14 @@ function App() {
     //если нет токена, оставить на странице регистрации
     React.useEffect(() => {
      if(!!data.data) {
-         console.log(!!data.data, 'Дата при редиректе, если прилетела дата')
          history.push('/home')
-     } else {
-         history.push('/')
      }
-     },[!!data.data])
-
+     },[data.data])
     return (
         <div className="App">
             <Switch>
-                <Route path="/" component={SignIn} exact/>
-                <Route path="/home" component={Home} />
+                <Route path="/" component={() => <SignIn/>} exact/>
+                <Route path="/home" component={() => <Home/>} />
             </Switch>
         </div>
     );

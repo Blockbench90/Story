@@ -35,8 +35,7 @@ export const Story = ({_id, text, user, classes, createdAt}) => {
         setAnchorEl(null);
     };
 
-    return (user
-            ? (
+    return (user && (
                 <a onClick={handleClickStory} className={classes.storyWrapper} href={`/home/story/${_id}`}>
                     <Paper variant="outlined" className={classNames(classes.story, classes.storyHeader)}>
                         <Grid container spacing={3}>
@@ -100,9 +99,6 @@ export const Story = ({_id, text, user, classes, createdAt}) => {
                     </Paper>
                 </a>
             )
-            : (<div className={classes.storyCentred}>
-                <CircularProgress/>
-            </div>)
     )
 }
 
