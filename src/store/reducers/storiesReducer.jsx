@@ -3,6 +3,7 @@ import produce from "immer";
 
 const SET_STORIES = '/stories/SET_STORIES'
 const ADD_NEW_STORY = 'stories/ADD_NEW_STORY'
+const DELETE_STORY = 'stories/DELETE_STORY'
 const initialState = {
     items: [],
     isLoaded: true
@@ -18,6 +19,12 @@ const storiesReducer = (state = initialState, action) => {
         case ADD_NEW_STORY: {
             return produce(state, draft => {
                 draft.items.push(action.payload)
+                draft.isLoaded = false
+            })
+        }
+        case DELETE_STORY: {
+            return produce(state, draft => {
+                draft.items= action.payload
                 draft.isLoaded = false
             })
         }
@@ -37,6 +44,14 @@ export const fetchStories = () => (dispatch) => {
 //добавить новую историю
 export const createNewStoryData = (text) => (dispatch) => {
     StoriesApi.addStory(text).then((res) => dispatch(addNewFormStory(res.data)))
+}
+export const deleteStoryById = (id) => (dispatch) => {
+    StoriesApi.deleteStory(id).then((res) => {
+        console.log(res.status, "res.status")
+        if(res.status === 200) {
+            dispatch(fetchStories())
+        }
+    })
 }
 //пример прилетевшей даты после добавление сторис
 // const data = {

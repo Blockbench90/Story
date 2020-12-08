@@ -14,5 +14,9 @@ export const StoriesApi = {
     //добавить историю
     addStory(data){
         return axios.post('/stories', {text: data}).then(response => response.data)
+    },
+    //удалить историю
+    deleteStory(id) {
+        return axios.delete(`/stories/${id}`)
     }
 }

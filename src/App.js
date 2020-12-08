@@ -7,8 +7,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {authMeUser} from "./store/reducers/userReducer";
 
 function App() {
-    const auth = window.localStorage.token
-    console.log(!!auth, 'Token in App')
     const history = useHistory()
     const dispatch = useDispatch()
     const data = useSelector(({user}) => user)

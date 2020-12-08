@@ -1,7 +1,7 @@
 import * as axios from "axios";
 
 //небольшая поднастройка, для токена
-const withConfig = axios.interceptors.request.use((config) => {
+export const withConfig = axios.interceptors.request.use((config) => {
         config.headers['token'] = window.localStorage.getItem('token');
         return config;
     })

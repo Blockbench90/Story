@@ -7,9 +7,17 @@ import RightSide from "./RightSide";
 import Content from "./Content";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchStories} from "../../store/reducers/storiesReducer";
+import {useHistory} from 'react-router-dom'
 
 
 const Home = () => {
+    const history = useHistory()
+    const token = window.localStorage.token
+    useEffect(()=> {
+        if(!token) {
+            history.push('/')
+        }
+    })
     const {items, isLoaded} = useSelector(({stories}) => stories)
     const dispatch = useDispatch()
     const classes = useHomeStyles()

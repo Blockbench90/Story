@@ -25,7 +25,6 @@ export const FullStory = () => {
     const dispatch = useDispatch()
     const {data} = useSelector(({story}) => story)
     const {isLoaded} = useSelector(({story}) => story)
-    console.log(data, "Прилетевшая Дата")
     const params = useParams()
     const id = params.id
 

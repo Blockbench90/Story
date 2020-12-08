@@ -13,8 +13,11 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import {formatDate} from "../utils/formatDate";
 import Ava from '../assets/som_logo.jpg'
+import {useDispatch} from "react-redux";
+import {deleteStoryById} from "../store/reducers/storiesReducer";
 
 export const Story = ({_id, text, user, classes, createdAt}) => {
+    const dispatch = useDispatch()
     //для доп-меню
     const [anchorEl, setAnchorEl] = useState(null);
     const open = (anchorEl);
@@ -26,17 +29,21 @@ export const Story = ({_id, text, user, classes, createdAt}) => {
     }
 
     const handleClick = (event) => {
-        event.stopPropagation();
-        event.preventDefault();
+        // event.stopPropagation();
+        // event.preventDefault();
         setAnchorEl(event.currentTarget);
     };
 
     const handleClose = () => {
         setAnchorEl(null);
     };
+    const handleClickRedaction = () => {
+        console.log('нажата кнопка для удаления стирис')
+        dispatch(deleteStoryById(_id))
+        handleClose()
+    }
 
-    return (user && (
-                <a onClick={handleClickStory} className={classes.storyWrapper} href={`/home/story/${_id}`}>
+    return (user && (<div >
                     <Paper variant="outlined" className={classNames(classes.story, classes.storyHeader)}>
                         <Grid container spacing={3}>
                             <Grid item xs={1}>
@@ -54,23 +61,25 @@ export const Story = ({_id, text, user, classes, createdAt}) => {
                                         </Typography>
                                     </div>
                                     <div>
+
                                         <IconButton aria-label="more" aria-controls="long-menu" aria-haspopup="true" onClick={handleClick} >
                                             <MoreVertIcon />
                                         </IconButton>
-
                                         <Menu id="long-menu" anchorEl={anchorEl} keepMounted open={open} onClose={handleClose} >
                                             <MenuItem onClick={handleClose}>
                                                 Редактировать
                                             </MenuItem>
-                                            <MenuItem onClick={handleClose}>
+                                            <MenuItem onClick={handleClickRedaction}>
                                                 Удалить твит
                                             </MenuItem>
                                         </Menu>
                                     </div>
                                 </div>
+                                <a className={classes.storyWrapper} onClick={handleClickStory}  href={`/home/story/${_id}`}>
                                 <Typography variant="body1" gutterBottom>
                                     {text}
                                 </Typography>
+                                </a>
                                 <div className={classes.storyFooter}>
                                     <div>
                                         <IconButton color='primary'>
@@ -97,7 +106,8 @@ export const Story = ({_id, text, user, classes, createdAt}) => {
                             </Grid>
                         </Grid>
                     </Paper>
-                </a>
+
+            </div>
             )
     )
 }

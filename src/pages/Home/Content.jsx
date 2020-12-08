@@ -15,7 +15,7 @@ const Content = ({classes, isLoading, items}) => {
             <Paper>
                 <div className={classes.menuHeader}>
                     <div style={{display: 'flex'}}>
-                        <Route path="/home/:any">
+                        <Route path="/home/:id">
                             <BackButton/>
                         </Route>
                         <Route path={['/home', '/home/search']} exact>
