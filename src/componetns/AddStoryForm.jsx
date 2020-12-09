@@ -11,12 +11,12 @@ import {useDispatch} from "react-redux";
 import {createNewStoryData} from "../store/reducers/storiesReducer";
 
 
-const MAX_LENGTH = 250;
+const MAX_LENGTH = 3000;
 
 export const AddStoryForm = ({classes, maxRows, }) => {
     const dispatch = useDispatch()
     const [text, setText] = React.useState('');
-    const textLimitPercent = Math.round((text.length / 250) * 100);
+    const textLimitPercent = Math.round((text.length / 3000) * 100);
     const textCount = MAX_LENGTH - text.length;
 
     const handleChangeTextarea = (e) => {

@@ -1,5 +1,4 @@
 import React from 'react';
-import PaletteIcon from '@material-ui/icons/Palette';
 import SearchIcon from '@material-ui/icons/Search';
 import NotificationIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import MessageIcon from '@material-ui/icons/EmailOutlined';
@@ -15,7 +14,6 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import {ModalBlock} from "./ModalBlock";
 import {AddStoryForm} from "./AddStoryForm";
-import {UserSideProfile} from "./UserSideProfile";
 import {NavLink} from "react-router-dom";
 
 export const SideMenu = ({classes}) => {
@@ -45,8 +43,8 @@ export const SideMenu = ({classes}) => {
                     <div>
                         <HomeIcon className={classes.sideMenuListItemIcon}/>
                         <Hidden smDown>
-                            <Typography className={classes.sideMenuListItemLabel} variant="h6">
-                                Главная
+                            <Typography className={classes.sideMenuListItemLabel} variant="subtitle2">
+                                <span>Главная</span>
                             </Typography>
                         </Hidden>
                     </div>
@@ -56,7 +54,7 @@ export const SideMenu = ({classes}) => {
                     <div>
                         <SearchIcon className={classes.sideMenuListItemIcon}/>
                         <Hidden smDown>
-                            <Typography className={classes.sideMenuListItemLabel} variant="h6">
+                            <Typography className={classes.sideMenuListItemLabel} variant="subtitle2">
                                 Поиск
                             </Typography>
                         </Hidden>
@@ -66,7 +64,7 @@ export const SideMenu = ({classes}) => {
                     <div>
                         <NotificationIcon className={classes.sideMenuListItemIcon}/>
                         <Hidden smDown>
-                            <Typography className={classes.sideMenuListItemLabel} variant="h6">
+                            <Typography className={classes.sideMenuListItemLabel} variant="subtitle2">
                                 Уведомления
                             </Typography>
                         </Hidden>
@@ -77,7 +75,7 @@ export const SideMenu = ({classes}) => {
                         <MessageIcon className={classes.sideMenuListItemIcon}/>
 
                         <Hidden smDown>
-                            <Typography className={classes.sideMenuListItemLabel} variant="h6">
+                            <Typography className={classes.sideMenuListItemLabel} variant="subtitle2">
                                 Сообщения
                             </Typography>
                         </Hidden>
@@ -88,7 +86,7 @@ export const SideMenu = ({classes}) => {
                         <BookmarkIcon className={classes.sideMenuListItemIcon}/>
 
                         <Hidden smDown>
-                            <Typography className={classes.sideMenuListItemLabel} variant="h6">
+                            <Typography className={classes.sideMenuListItemLabel} variant="subtitle2">
                                 Закладки
                             </Typography>
                         </Hidden>
@@ -99,7 +97,7 @@ export const SideMenu = ({classes}) => {
                         <ListIcon className={classes.sideMenuListItemIcon}/>
 
                         <Hidden smDown>
-                            <Typography className={classes.sideMenuListItemLabel} variant="h6">
+                            <Typography className={classes.sideMenuListItemLabel} variant="subtitle2">
                                 Список
                             </Typography>
                         </Hidden>
@@ -110,7 +108,7 @@ export const SideMenu = ({classes}) => {
                         <UserIcon className={classes.sideMenuListItemIcon}/>
 
                         <Hidden smDown>
-                            <Typography className={classes.sideMenuListItemLabel} variant="h6">
+                            <Typography className={classes.sideMenuListItemLabel} variant="subtitle2">
                                 Профиль
                             </Typography>
                         </Hidden>

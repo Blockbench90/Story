@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createMuiTheme } from '@material-ui/core/styles';
 import { red } from '@material-ui/core/colors';
 
@@ -28,7 +27,7 @@ export const theme = createMuiTheme({
             main: red.A400,
         },
         background: {
-            default: 'rgba(0, 0, 0, 0.04)',
+            default: 'rgba(169, 187, 184, 0.19)',
         },
         text: {
             primary: '#14171a',

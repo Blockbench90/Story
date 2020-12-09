@@ -30,13 +30,13 @@ const Home = () => {
         <Container maxWidth="lg" className={classes.wrapper}>
             {/*spacing - расстояние между блоками гридов*/}
             <Grid container spacing={2}>
-                <Grid sm={2} md={2} item>
+                <Grid xs={18} item>
                     <SideMenu classes={classes}/>
                 </Grid>
-                <Grid sm={7} md={7} item>
+                <Grid xs={11} item>
                     <Content classes={classes} isLoading={isLoaded} items={items}/>
                 </Grid>
-                <Grid sm={2} md={2} item>
+                <Grid xs={1} item>
                     <RightSide classes={classes}/>
                 </Grid>
             </Grid>

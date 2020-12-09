@@ -16,25 +16,31 @@ const Content = ({classes, isLoading, items}) => {
             <Paper>
                 <div className={classes.menuHeader}>
                     <div style={{display: 'flex'}}>
-                        <Route path="/home/:id">
+
+                        <Route path="/home/:any">
                             <BackButton/>
                         </Route>
+
                         <Route path={['/home', '/home/search']} exact>
                             <Paper variant="outlined" className={classes.storyHeader}>
                                 <Typography variant="h6">Главная</Typography>
                             </Paper>
                         </Route>
-                        <Route path="/home/story">
+
+                        <Route path="/home/stories/:id">
                             <Paper className={classes.storyHeader} style={{marginLeft: -14}}>
                             <Typography variant="h6">Story</Typography>
                             </Paper>
                         </Route>
+
                     </div>
+
                     <div className={classes.modalMenu}>
                         <Paper>
                             <ModalMenu/>
                         </Paper>
                     </div>
+
                 </div>
             </Paper>
 

@@ -26,12 +26,15 @@ export const useHomeStyles = makeStyles((theme) => ({
         }
     },
     sideMenuList: {
+        display: 'flex',
+        justifyContent: 'space-between',
         position: 'sticky',
         top: 0,
+        bottom: '30px',
         listStyle: 'none',
         padding: 0,
         margin: 0,
-        maxWidth: 230,
+        maxWidth: '100vw',
         '@media (max-width:600px)': {
             display: 'none',
         }
@@ -44,6 +47,7 @@ export const useHomeStyles = makeStyles((theme) => ({
         cursor: 'pointer',
         '&:hover': {
             '& div': {
+                paddingTop: 10,
                 backgroundColor: 'rgba(29, 161, 242, 0.1)',
                 '& h6': {
                     color: theme.palette.primary.main,
@@ -58,7 +62,7 @@ export const useHomeStyles = makeStyles((theme) => ({
             display: 'inline-flex',
             alignItems: 'center',
             position: 'relative',
-            padding: '0 25px 0 20px',
+            padding: '17px 25px 0px 26px',
             borderRadius: 30,
             height: 50,
             marginBottom: 5,
@@ -66,17 +70,23 @@ export const useHomeStyles = makeStyles((theme) => ({
         },
     },
     sideMenuListItemLabel: {
-        fontWeight: 700,
-        fontSize: 17,
+        fontWeight: 400,
+        fontSize: 15,
         marginLeft: 15,
+        marginTop: 10,
+        '@media (max-width:1350px)': {
+                display: 'none',
+        },
     },
     sideMenuListItemIcon: {
-        fontSize: 30,
-        marginLeft: -5,
+        fontSize: 35,
+        marginLeft: -10,
     },
     sideMenuTweetButton: {
+        paddingLeft: theme.spacing(5.5),
+        paddingRight: theme.spacing(5.5),
         padding: theme.spacing(3.2),
-        marginTop: theme.spacing(2),
+        marginTop: theme.spacing(1.7),
     },
     storyWrapper: {
         color: 'inherit',
@@ -118,8 +128,8 @@ export const useHomeStyles = makeStyles((theme) => ({
     },
     storyAvatar: {
         display: 'flex-start',
-        width: theme.spacing(5.5),
-        height: theme.spacing(5.5),
+        width: theme.spacing(6.5),
+        height: theme.spacing(6.5),
         marginRight: 10,
         '@media (max-width:1100px)': {
             width: theme.spacing(4.5),
