@@ -12,18 +12,20 @@ import {useHistory} from 'react-router-dom'
 
 const Home = () => {
     const history = useHistory()
+    const {items, isLoaded} = useSelector(({stories}) => stories)
+    const dispatch = useDispatch()
+    const classes = useHomeStyles()
     const token = window.localStorage.token
     useEffect(()=> {
         if(!token) {
             history.push('/')
+        } else {
+            dispatch(fetchStories())
         }
-    })
-    const {items, isLoaded} = useSelector(({stories}) => stories)
-    const dispatch = useDispatch()
-    const classes = useHomeStyles()
-    useEffect(()=>{
-        dispatch(fetchStories())
-    }, [])
+    }, [token])
+    // useEffect(()=>{
+    //
+    // }, [])
     return (
         <Container maxWidth="lg" className={classes.wrapper}>
             {/*spacing - расстояние между блоками гридов*/}

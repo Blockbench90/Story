@@ -6,7 +6,8 @@ import {UserApi} from "./restApi/userApi";
 import {useDispatch, useSelector} from "react-redux";
 import {authMeUser} from "./store/reducers/userReducer";
 
-function App() {
+const App = () => {
+    console.log('App RENDER')
     const history = useHistory()
     const dispatch = useDispatch()
     const data = useSelector(({user}) => user)

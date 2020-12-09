@@ -18,7 +18,7 @@ const storiesReducer = (state = initialState, action) => {
             })
         case ADD_NEW_STORY: {
             return produce(state, draft => {
-                draft.items.push(action.payload)
+                draft.items.unshift(action.payload)
                 draft.isLoaded = false
             })
         }

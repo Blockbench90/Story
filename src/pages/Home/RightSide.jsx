@@ -1,6 +1,6 @@
 import React from 'react'
 import {SearchTextField} from "../../componetns/SearchTextField";
-import {Grid, InputAdornment, Paper, Typography} from "@material-ui/core";
+import { InputAdornment, Paper, Typography} from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/SearchOutlined";
 import List from "@material-ui/core/List/List";
 import ListItem from "@material-ui/core/ListItem/ListItem";
@@ -12,6 +12,7 @@ import Button from "@material-ui/core/Button/Button";
 import PersonAddIcon from "@material-ui/icons/PersonAddOutlined";
 
 const RightSide = ({classes}) => {
+    console.log('RIGHTSIDE RENDER')
     return (
 
             <div className={classes.rightSide}>

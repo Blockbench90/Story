@@ -10,6 +10,7 @@ import {FullStory} from "../../componetns/FullStory";
 
 
 const Content = ({classes, isLoading, items}) => {
+    console.log('CONTENT RENDER')
     return (
         <Paper className={classes.storyWrapper} variant="outlined">
             <Paper>
@@ -48,7 +49,6 @@ const Content = ({classes, isLoading, items}) => {
 
             <Route path="/home" exact>
                 {isLoading
-
                     ? (<div className={classes.storyCentred}>
                         <CircularProgress/>
                     </div>)

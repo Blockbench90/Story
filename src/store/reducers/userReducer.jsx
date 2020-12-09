@@ -1,11 +1,10 @@
-import React from "react";
 import produce from "immer";
 import {UserApi} from "../../restApi/userApi";
 
 const FETCH_USER = 'users/FETCH_USER'
 const AUTH_ME_USER = 'users/AUTH_ME_USER'
 const ERROR_USER = 'users/ERROR_USER'
-const REGISTER_USER = 'users/REGISTER_USER'
+
 
 const initialState = {
     data: null,
@@ -39,7 +38,7 @@ const userReducer = (state = initialState, action) => {
 }
 export default userReducer
 
-const registerUser = (data) => ({type: REGISTER_USER, payload: data})
+
 const setUser = (data) => ({type: FETCH_USER, payload: data})
 const setUserError = (error) => ({type: ERROR_USER, payload: error})
 export const authMeUser = (data) => ({type: AUTH_ME_USER, payload: data})
