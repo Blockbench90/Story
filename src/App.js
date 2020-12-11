@@ -8,12 +8,12 @@ import {authMeUser} from "./store/reducers/userReducer";
 
 
 const App = () => {
-    console.log('App RENDER')
+    // console.log('App RENDER')
     const history = useHistory()
     const dispatch = useDispatch()
     const data = useSelector(({user}) => user)
 
-    // //при первой загрузке, проверять пользователя по токену
+    //при первой загрузке, проверять пользователя по токену
     const checkUserAuth = async () => {
         try {
             const data = await UserApi.getMe()

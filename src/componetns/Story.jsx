@@ -15,6 +15,7 @@ import {formatDate} from "../utils/formatDate";
 import Ava from '../assets/som_logo.jpg'
 import {useDispatch} from "react-redux";
 import {deleteStoryById} from "../store/reducers/storiesReducer";
+import {editStoryById} from "../store/reducers/storyReducer";
 
 export const Story = ({_id, text, user, classes, createdAt}) => {
     const dispatch = useDispatch()
@@ -37,6 +38,11 @@ export const Story = ({_id, text, user, classes, createdAt}) => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+    const editStoryOnClick = () => {
+        dispatch(editStoryById(_id))
+        handleClose()
+    }
+
     const handleClickRedaction = () => {
         console.log('нажата кнопка для удаления стирис')
         dispatch(deleteStoryById(_id))
@@ -66,7 +72,7 @@ export const Story = ({_id, text, user, classes, createdAt}) => {
                                             <MoreVertIcon />
                                         </IconButton>
                                         <Menu id="long-menu" anchorEl={anchorEl} keepMounted open={open} onClose={handleClose} >
-                                            <MenuItem onClick={handleClose}>
+                                            <MenuItem onClick={editStoryOnClick}>
                                                 Редактировать
                                             </MenuItem>
                                             <MenuItem onClick={handleClickRedaction}>

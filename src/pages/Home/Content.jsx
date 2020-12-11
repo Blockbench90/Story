@@ -10,7 +10,7 @@ import {FullStory} from "../../componetns/FullStory";
 
 
 const Content = ({classes, isLoading, items}) => {
-    console.log('CONTENT RENDER')
+    // console.log('CONTENT RENDER')
     return (
         <Paper className={classes.storyWrapper} variant="outlined">
             <Paper>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import classNames from 'classnames';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -7,17 +7,26 @@ import IconButton from '@material-ui/core/IconButton';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import EmojiIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {createNewStoryData} from "../store/reducers/storiesReducer";
 
 
 const MAX_LENGTH = 3000;
 
-export const AddStoryForm = ({classes, maxRows, }) => {
+export const AddStoryForm = ({classes, maxRows,}) => {
     const dispatch = useDispatch()
+    const story = useSelector(({story}) => story)
     const [text, setText] = React.useState('');
     const textLimitPercent = Math.round((text.length / 3000) * 100);
     const textCount = MAX_LENGTH - text.length;
+    //обновить компонент, если текст изменился
+    useEffect(() => {
+        if (text !== story.text) {
+            console.log(story.text, 'story text')
+            setText(story.text)
+        }
+    }, [story.text])
+
 
     const handleChangeTextarea = (e) => {
         if (e.currentTarget) {
@@ -50,10 +59,10 @@ export const AddStoryForm = ({classes, maxRows, }) => {
             <div className={classes.addFormBottom}>
                 <div className={classNames(classes.storyFooter, classes.addFormBottomActions)}>
                     <IconButton color="primary">
-                        <ImageOutlinedIcon style={{ fontSize: 26 }} />
+                        <ImageOutlinedIcon style={{fontSize: 26}}/>
                     </IconButton>
                     <IconButton color="primary">
-                        <EmojiIcon style={{ fontSize: 26 }} />
+                        <EmojiIcon style={{fontSize: 26}}/>
                     </IconButton>
                 </div>
                 <div className={classes.addFormBottomRight}>
@@ -66,10 +75,10 @@ export const AddStoryForm = ({classes, maxRows, }) => {
                                     size={20}
                                     thickness={5}
                                     value={text.length >= MAX_LENGTH ? 100 : textLimitPercent}
-                                    style={text.length >= MAX_LENGTH ? { color: 'red' } : undefined}
+                                    style={text.length >= MAX_LENGTH ? {color: 'red'} : undefined}
                                 />
                                 <CircularProgress
-                                    style={{ color: 'rgba(0, 0, 0, 0.1)' }}
+                                    style={{color: 'rgba(0, 0, 0, 0.1)'}}
                                     variant="static"
                                     size={20}
                                     thickness={5}

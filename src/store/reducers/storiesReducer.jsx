@@ -47,7 +47,7 @@ export const createNewStoryData = (text) => (dispatch) => {
 }
 export const deleteStoryById = (id) => (dispatch) => {
     StoriesApi.deleteStory(id).then((res) => {
-        console.log(res.status, "res.status")
+        console.log(res.status, "res.status after delete")
         if(res.status === 200) {
             dispatch(fetchStories())
         }

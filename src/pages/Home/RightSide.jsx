@@ -12,7 +12,7 @@ import Button from "@material-ui/core/Button/Button";
 import PersonAddIcon from "@material-ui/icons/PersonAddOutlined";
 
 const RightSide = ({classes}) => {
-    console.log('RIGHTSIDE RENDER')
+    // console.log('RIGHTSIDE RENDER')
     return (
 
             <div className={classes.rightSide}>

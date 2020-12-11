@@ -17,7 +17,7 @@ import {AddStoryForm} from "./AddStoryForm";
 import {NavLink} from "react-router-dom";
 
 export const SideMenu = ({classes}) => {
-    console.log('SIDEMENU RENDER')
+    // console.log('SIDEMENU RENDER')
     const [visibleAddTweet, setSetVisibleAddTweet] = React.useState(false);
 
     const handleClickOpenAddTweet = () => {
