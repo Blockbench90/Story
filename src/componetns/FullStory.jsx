@@ -19,7 +19,7 @@ import ruLang from 'date-fns/locale/ru'
 import {Story} from "./Story";
 
 
-//компонент для отображения полной истории после нажатия на превью в странице Home
+//компонент для отображения полной истории после нажатия на превью в странице Layout
 export const FullStory = () => {
     const classes = useHomeStyles();
     const dispatch = useDispatch()

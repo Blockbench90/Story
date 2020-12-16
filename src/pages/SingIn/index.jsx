@@ -4,14 +4,17 @@ import ImportContactsOutlinedIcon from '@material-ui/icons/ImportContactsOutline
 import {useStylesSignIn} from "./theme";
 import LoginModal from "./components/LoginModal";
 import RegistrationModal from "./components/RegistrationModal";
+import {useDispatch} from "react-redux";
 
 
 export const SignIn = () => {
     const classes = useStylesSignIn();
+    const dispatch = useDispatch()
     //установка видимости модального окна
     const [visibleModal, setVisibleModal] = useState('signIn' | 'signUp');
     //для входа
     const handleClickOpenSignIn = () => {
+        dispatch(fetch)
         setVisibleModal('signIn');
     };
     //для регистрации

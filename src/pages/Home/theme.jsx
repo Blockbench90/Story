@@ -13,9 +13,9 @@ export const useHomeStyles = makeStyles((theme) => ({
         fontSize: 40,
     },
     modalMenu: {
-      '@media (min-width:600px)': {
-          display: 'none',
-      }
+        '@media (min-width:600px)': {
+            display: 'none',
+        }
     },
     menuHeader: {
         '@media (max-width:600px)': {
@@ -25,11 +25,15 @@ export const useHomeStyles = makeStyles((theme) => ({
             paddingRight: 20
         }
     },
+    popper: {
+        height: '100px',
+        fontSize: '20px'
+    },
     sideMenuList: {
         display: 'flex',
         justifyContent: 'space-between',
         position: 'sticky',
-        top: 0,
+        top: '10px',
         bottom: '30px',
         listStyle: 'none',
         padding: 0,
@@ -47,7 +51,7 @@ export const useHomeStyles = makeStyles((theme) => ({
         cursor: 'pointer',
         '&:hover': {
             '& div': {
-                paddingTop: 10,
+                paddingTop: 0,
                 backgroundColor: 'rgba(29, 161, 242, 0.1)',
                 '& h6': {
                     color: theme.palette.primary.main,
@@ -62,10 +66,11 @@ export const useHomeStyles = makeStyles((theme) => ({
             display: 'inline-flex',
             alignItems: 'center',
             position: 'relative',
-            padding: '17px 25px 0px 26px',
+            padding: '5px 25px 0px 26px',
             borderRadius: 30,
             height: 50,
             marginBottom: 5,
+            marginTop: 10,
             transition: 'background-color 0.1s ease-in-out',
         },
     },
@@ -75,7 +80,7 @@ export const useHomeStyles = makeStyles((theme) => ({
         marginLeft: 15,
         marginTop: 10,
         '@media (max-width:1350px)': {
-                display: 'none',
+            display: 'none',
         },
     },
     sideMenuListItemIcon: {
@@ -140,8 +145,8 @@ export const useHomeStyles = makeStyles((theme) => ({
             height: theme.spacing(3),
         },
         '@media (max-width:600px)': {
-                width: theme.spacing(3.5),
-                height: theme.spacing(3.5),
+            width: theme.spacing(3.5),
+            height: theme.spacing(3.5),
         }
     },
     storyFooter: {
