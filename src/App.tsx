@@ -5,25 +5,24 @@ import Layout from "./pages/Layout";
 import {UserApi} from "./restApi/userApi";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAuthMe} from "./store/reducers/userReducer";
-import Profile from "./pages/Profile/Profile";
-import Home from "./pages/Home/Home";
-import CircularProgress from "@material-ui/core/CircularProgress";
-//TODO: поправить логинизацию, чтобы сразу перебрасывало на страницу пользователя
-//проблемы скорее всего с фетчдата, проверке логинизации
+import {Profile} from "./pages/Profile/Profile";
+import {Home} from "./pages/Home/Home";
+import {useStylesSignIn} from "./pages/SingIn/theme";
 
 const App = () => {
     console.log('app render')
+    const classes = useStylesSignIn()
     const history = useHistory()
     const dispatch = useDispatch()
     const data = useSelector(({user}) => user)
     const isAuth = useSelector(({user}) => user.isAuth)
-    console.log(isAuth)
+    console.log(isAuth, data)
 
     //при первой загрузке, проверять пользователя по токену
     const checkUserAuth = async () => {
         try {
             const data = await UserApi.getMe()
-            dispatch(fetchAuthMe(data))
+            dispatch(fetchAuthMe(data.data))
         } catch (error) {
             console.log(error, "Ошибка логинизации")
         }
@@ -37,18 +36,23 @@ const App = () => {
     //проверка логинизации, если есть, на главную,
     //если нет токена, оставить на странице регистрации
     React.useEffect(() => {
-        isAuth ? history.push('/home') : history.push('/')
-        // if (!!data.data) {
-        //     history.push('/home')
-        // }
-    }, [isAuth, data])
+        isAuth ? history.push('/home') : history.push('/signin')
+    }, [isAuth])
+    //TODO: пофиксить багу с отображением страниц
+    // if(!isAuth){
+    //     return <div className={classes.loadingApp}>
+    //         <ImportContactsOutlinedIcon className={classes.loadingIcon} aria-label=""
+    //                                     color="secondary"/>
+    //         <CircularProgress className={classes.loadingCircul}/>
+    //     </div>
+    // }
     return (
         <div className="App">
-            <Route path="/" component={() => <SignIn/>} exact/>
             <Switch>
+            <Route path="/signin" component={SignIn} exact/>
                 <Layout>
-                    <Route path="/home" component={() => <Home />}/>
-                    <Route path="/profile" component={() => <Profile/>}/>
+                    <Route path="/home" component={Home}/>
+                    <Route path="/profile" component={Profile}/>
                 </Layout>
             </Switch>
         </div>

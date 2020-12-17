@@ -7,6 +7,7 @@ const EDIT_STORY = 'stories/EDIT_CURRENT_STORY_BY_ID'
 const initialState = {
     data: [],
     isLoaded: true,
+    title: '',
     text: ''
 }
 //для манипуляций над определенной историей, к примеру редактированию
@@ -21,6 +22,7 @@ const storyReducer = (state = initialState, action) => {
         case EDIT_STORY: {
             return produce(state, draft => {
                 draft.text = action.payload.text
+                draft.title = action.payload.title
                 draft.isLoaded = true
             })
         }

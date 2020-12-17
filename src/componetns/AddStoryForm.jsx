@@ -16,18 +16,25 @@ const MAX_LENGTH = 3000;
 export const AddStoryForm = ({classes, maxRows,}) => {
     const dispatch = useDispatch()
     const story = useSelector(({story}) => story)
-    const [text, setText] = React.useState('');
+    const [title, setTitle] = React.useState('')
+    const [text, setText] = React.useState('')
     const textLimitPercent = Math.round((text.length / 3000) * 100);
     const textCount = MAX_LENGTH - text.length;
     //обновить компонент, если текст изменился
     useEffect(() => {
+        console.log(story)
         if (text !== story.text) {
             console.log(story.text, 'story text')
+            setTitle(story.title)
             setText(story.text)
         }
-    }, [story.text])
+    }, [story.text, story.title])
 
-
+    const handleChangeTextareaTitle = (e) => {
+        if (e.currentTarget) {
+            setTitle(e.currentTarget.value);
+        }
+    };
     const handleChangeTextarea = (e) => {
         if (e.currentTarget) {
             setText(e.currentTarget.value);
@@ -35,9 +42,11 @@ export const AddStoryForm = ({classes, maxRows,}) => {
     };
 
     const handleClickAddStory = () => {
-        dispatch(createNewStoryData(text))
-        console.log(text, 'Текст после нажатия кнопки в форме добаления')
-        setText('');
+        // setData({title, text})
+        dispatch(createNewStoryData({title, text}))
+        // console.log(data, 'Текст после нажатия кнопки в форме добаления')
+        setTitle('')
+        setText('')
     };
 
     return (
@@ -48,13 +57,23 @@ export const AddStoryForm = ({classes, maxRows,}) => {
                     alt={`Аватарка пользователя UserAvatar`}
                     src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
                 />
+                <div>
+
+                <TextareaAutosize
+                    onChange={handleChangeTextareaTitle}
+                    className={classes.addFormTextareaTitle}
+                    placeholder="Введите имя произвидения..."
+                    value={title}
+                    rowsMax={maxRows}
+                />
                 <TextareaAutosize
                     onChange={handleChangeTextarea}
                     className={classes.addFormTextarea}
-                    placeholder="Что происходит?"
+                    placeholder="Рассказываете..."
                     value={text}
                     rowsMax={maxRows}
                 />
+                </div>
             </div>
             <div className={classes.addFormBottom}>
                 <div className={classNames(classes.storyFooter, classes.addFormBottomActions)}>

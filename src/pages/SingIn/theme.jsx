@@ -7,6 +7,23 @@ export const useStylesSignIn = makeStyles((theme) => ({
         backgroundColor: 'rgba(5, 82, 76, 0.8)',
         overflow: 'hidden',
     },
+    loadingApp: {
+        position: 'absolute',
+        left: '50%',
+        top: '50%',
+        transform: 'translate(-50%, -50%)',
+    },
+    loadingIcon: {
+        position: 'absolute',
+        left: '-5%',
+        top: '39%',
+        transform: 'translate(-50%, -50%)',
+        width: 130,
+        height: 130
+    },
+    loadingCircul: {
+        fontSize: '40px'
+    },
     leftSide: {
         flex: '0 0 50%',
         position: 'relative',

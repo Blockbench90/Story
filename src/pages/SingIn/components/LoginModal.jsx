@@ -11,7 +11,7 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import {useDispatch, useSelector} from "react-redux";
 import {Notification} from "../../../componetns/Notification";
-import { setUserData} from "../../../store/reducers/userReducer";
+import { loginUserData} from "../../../store/reducers/userReducer";
 
 //схема таблици логинизации, валидация ошибок при вводе
 const LoginFormSchema = yup.object().shape({
@@ -37,7 +37,7 @@ const LoginModal = ({open, onClose}) => {
     });
     //при сабмите отправим в редакс данные, собранные из input
     const onSubmit = async (data) => {
-        dispatch(setUserData(data))
+        dispatch(loginUserData(data))
     };
     //проверим статус, и покажем пользователю сообщение в виде Alert
     React.useEffect(() => {

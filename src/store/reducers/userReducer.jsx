@@ -18,7 +18,8 @@ const userReducer = (state = initialState, action) => {
         case FETCH_USER: {
             return produce(state, draft => {
                 draft.data = action.payload.data
-                draft.status = action.payload.status
+                draft.status = 'success'
+                draft.isAuth = true
             })
         }
         case AUTH_ME_USER: {
@@ -45,7 +46,7 @@ const setUser = (data) => ({type: FETCH_USER, payload: data})
 const setUserError = (error) => ({type: ERROR_USER, payload: error})
 export const authMeUser = (data) => ({type: AUTH_ME_USER, payload: data})
 
-export const setUserData = (postData) => async (dispatch) => {
+export const loginUserData = (postData) => async (dispatch) => {
     try {
         const data = await UserApi.signIn(postData)
         //в случае успешной логинизации запишет прилетевшие данные в стор
@@ -53,7 +54,7 @@ export const setUserData = (postData) => async (dispatch) => {
         //и в хедерах браузера сохранит токен пользователя
         window.localStorage.setItem('token', data.data.token)
         console.log(data)
-        dispatch(fetchAuthMe(data.data))
+        // dispatch(fetchAuthMe(data.data))
     } catch (error) {
         //иначе ошибка и окно алерта
         dispatch(setUserError())
@@ -73,12 +74,10 @@ export const registerUserData = (postData) => async (dispatch) => {
 }
 export const fetchAuthMe = (data) => async (dispatch) => {
     try {
-        const data = await UserApi.getMe(data)
-        console.log(data)
         //в случае успеха запишет прилетевшие данные в стор
         dispatch(authMeUser(data))
-        //и в хедерах браузера сохранит токен пользователя
     } catch (error) {
+        console.log(error)
         //иначе ошибка и окно алерта
         dispatch(setUserError())
      }

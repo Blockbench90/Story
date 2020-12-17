@@ -13,7 +13,7 @@ import {fetchStories} from "../../store/reducers/storiesReducer";
 import ScrollButton from "../../componetns/ScrollButton";
 
 
-const Home = () => {
+export const Home = () => {
     const classes = useHomeStyles()
     const dispatch = useDispatch();
     const stories = useSelector(({stories}) => stories.items);
@@ -77,4 +77,4 @@ const Home = () => {
         </ScrollButton>
     )
 }
-export default Home
+

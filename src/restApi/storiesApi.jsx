@@ -13,7 +13,7 @@ export const StoriesApi = {
     },
     //добавить историю
     addStory(data){
-        return axios.post('/stories', {text: data}).then(response => response.data)
+        return axios.post('/stories', { title: data.title,text: data.text}).then(response => response.data)
     },
     //удалить историю
     deleteStory(id) {

@@ -43,7 +43,7 @@ export const fetchStories = () => (dispatch) => {
 }
 //добавить новую историю
 export const createNewStoryData = (text) => (dispatch) => {
-    StoriesApi.addStory(text).then((res) => dispatch(addNewFormStory(res.data)))
+    StoriesApi.addStory(text).then((res) => dispatch(addNewFormStory(res.data))).then(res => console.log(res))
 }
 export const deleteStoryById = (id) => (dispatch) => {
     StoriesApi.deleteStory(id).then((res) => {
@@ -53,13 +53,3 @@ export const deleteStoryById = (id) => (dispatch) => {
         }
     })
 }
-//пример прилетевшей даты после добавление сторис
-// const data = {
-//     _id: Math.random().toString(36).substr(2),
-//     text: text,
-//     user: {
-//         fullname: 'TEST',
-//         username: "TEST",
-//         avatarUrl: '%2F&ved=RCVAQ'
-//     }
-// }
